@@ -4,6 +4,7 @@
   "description": "",
   "main": "all copy.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,5 +12,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": "12.22.9"
   }
 }
