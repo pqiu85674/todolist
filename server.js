@@ -83,7 +83,7 @@ const requestListener = (req, res) => {
   } else if (req.method == "PATCH" && req.url.startsWith("/todo")) {
     req.on("end", () => {
       try {
-        const url = new URL(req.url, `${req.headers.host}`);
+        const url = new URL(req.url, `http://${req.headers.host}`);
         const id = url.searchParams.get("id");
         const title = JSON.parse(body).title;
         const index = todos.findIndex((item) => item.id == id);
