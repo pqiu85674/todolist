@@ -87,6 +87,10 @@ const requestListener = (req, res) => {
         const id = url.searchParams.get("id");
         const title = JSON.parse(body).title;
         const index = todos.findIndex((item) => item.id == id);
+        console.log(url);
+        console.log(id);
+        console.log(title);
+        console.log(index);
         if (title !== undefined && index > -1) {
           todos[index].title = title;
           res.writeHead(200, headers);
