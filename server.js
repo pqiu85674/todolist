@@ -53,6 +53,7 @@ const requestListener = (req, res) => {
     todos.length = 0;
     successHandle(res, todos, "刪除成功");
   } else if (req.method == "DELETE" && req.url.startsWith("/todo?")) {
+    console.log("DELETE request received");
     const url = new URL(req.url, `http://${req.headers.host}`);
     const title = url.searchParams.get("title");
     const id = url.searchParams.get("id");
@@ -111,8 +112,8 @@ const requestListener = (req, res) => {
         errorHandle(res, "格式錯誤");
       }
     });
-  } else if (req.method == "OPTIONS" && req.url == "/todo") {
-    res.writeHead(200, headers);
+  } else if (req.method == "OPTIONS") {
+    res.writeHead(204);
     res.end();
   } else {
     res.writeHead(404, headers);
